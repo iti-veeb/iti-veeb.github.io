@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ZoMozDR9xs4HOpUYpGhzylbxiHGux1pImtO5FEfNPc4=' 'sha256-Tc1CZIHoPJoKW4MDrNhfhpRCh+/5SOzW0Ck8mBjWxZ4=' 'sha256-3DsWyPoijcQiYx5BiQmDFUZGROYzV6OgyikT6U2BY9s=' 'sha256-XXiGC/jLi6Esb0gBUblfAebPWKOQ+p8O0VTuVxgcGA8=' 'sha256-FTCixOkWTcIrwJEaIBoyfrqZo6IZ4V3n1vXaeXu0FiU=' 'sha256-+bMuJbTv4fAVNwamlhrxgCpWi4HxrhnS/xURSa/6PNU=' 'sha256-/979cOMLw6nNX7mr9mMTcErOgw8KN/uczhFnCh8Q9Yg=' 'sha256-csgrDBh7L34rYDQE8TLtGZJjmoKZA2pH32Z8oAuw0yA=' 'sha256-utsjmq3DFTOdSl5ISGYvxpkTDyBjstgLEIkWc9G+UV8=' 'sha256-3L7GZPjwm/szbMJnG+ghY08JhSBgX9kThJL1rhHzVA8=' 'sha256-pCOkpdyidjmfYFMMTFmY/EBIf4ptXjScYEWJCbvS8Ng='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; media-src 'self'; connect-src 'self' https://graph.microsoft.com https://login.microsoftonline.com https://*.sharepoint.com https://script.google.com https://script.googleusercontent.com; frame-src 'self' https://login.microsoftonline.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ITI · arendusversioon</title>
+<style>
+html,body{margin:0;min-height:100%}
+*{box-sizing:border-box}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:radial-gradient(1200px 600px at 20% -10%,#1b2a8a 0%,#0B1057 45%,#070a3a 100%)}
+.uks-kast{width:min(460px,100%);background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 30px 80px rgba(0,0,0,.45);color:#0B1057;font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif;text-align:left}
+.uks-mark{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;color:#0B1057;font-size:22px}
+.uks-mark svg{width:26px;height:26px;color:#2765E0}
+.uks-pealkiri{font:700 20px/1.3 system-ui,Segoe UI,Roboto,sans-serif;letter-spacing:0;color:#0B1057;margin:18px 0 6px}
+.uks-kast p{margin:0 0 14px;color:#5b6478;font-size:15px;line-height:1.5}
+.uks-nupp{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:10px;padding:12px 18px;font:600 15px/1.2 system-ui,Segoe UI,Roboto,sans-serif;cursor:pointer;background:#0B1057;color:#fff}
+.uks-nupp:hover{filter:brightness(1.15)}.uks-nupp:disabled{opacity:.6;cursor:default}
+.uks-nupp svg{width:18px;height:18px}
+.uks-teade{margin-top:14px;padding:10px 12px;border-radius:8px;background:#eef1f8;color:#0B1057;font-size:14px}
+.uks-teade.viga{background:#fff3f3;color:#8a1c1c}
+.uks-kast p.uks-mono{font-family:ui-monospace,Consolas,monospace;font-size:12px;margin:22px 0 0}
+.uks-mono a{color:#2765E0}
+.uks-kast.laeb .uks-pealkiri,.uks-kast.laeb p,.uks-kast.laeb .uks-nupp{display:none}
+.uks-teade[hidden]{display:none}
+#uksLaeb{display:none;font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif;color:#5b6478}
+html.laeb body{background:#FAFCFD}
+html.laeb .uks-kast{display:none}
+html.laeb #uksLaeb{display:block}
+@view-transition{navigation:auto}
+</style>
+<script>try{if(sessionStorage.getItem("iti_uks_sess"))document.documentElement.className="laeb"}catch(e){}</script>
+</head>
+<body>
+<div class="uks-kast" id="uksKast"><div class="uks-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>ITI</div><h2 class="uks-pealkiri" id="uksPealkiri">Suunamooduli arendusversioon</h2><p>Siin on kursuselehtede tööversioon, mis ei ole veel avalik. Sisenemiseks logi sisse Saaremaa Gümnaasiumi Microsofti kontoga.</p><button class="uks-nupp" id="avaSisse" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 3h9v9H2zM13 3h9v9h-9zM2 14h9v9H2zM13 14h9v9h-9z" opacity=".9"/></svg>Logi sisse kooli kontoga</button><div class="uks-teade" id="uksTeade" role="status" hidden></div><p class="uks-mono">Avalik leht: <a href="https://saaremaa.edu.ee/iti/" target="_blank" rel="noopener noreferrer">saaremaa.edu.ee/iti</a></p></div>
+<p id="uksLaeb">Laen lehte …</p>
+<noscript><p style="color:#fff;font:15px system-ui">Sisselogimiseks peab JavaScript olema lubatud.</p></noscript>
+<script src="/msal-browser.min.js"></script>
+<script>/* ITI arendusversiooni uks. Avalikus hoidlas on igal lehe aadressil ainult see uks; lehe sisu on privaatses hoidlas ja
+   tuleb läbi vaaturi (Apps Script, sisemine\rakendused\vaatur) alles pärast sisselogimist Microsofti kontoga.
+   Uks logib sisse sama registreeringuga mis kursuse rakendus (tõendid vahekaardi mälus), annab Microsofti tõendi vaaturile,
+   saab vastu vaaturi sessiooni ja küsib sellega praeguse aadressi lehe. Leht kirjutatakse samasse aknasse samal aadressil:
+   kursuse rakendus leiab olemasoleva sisselogimise ja uut ei küsi. */
+(function () {
+  "use strict";
+  var CLIENT = "a2c49306-22a2-4de1-98a5-28815814873d", TENANT = "df3b3606-d59f-4297-88f1-f5e4bf7c1532";
+  // Uks töötab ainult ehituses kirja pandud aadressil; mujal majutatud koopia sisse logida ei saa.
+  var ALUSED = ["https://iti-veeb.github.io/"];
+  var ALUS = ALUSED.filter(function (a) { return location.href.indexOf(a) === 0; })[0] || "";
+  var AUTH = ALUS ? ALUS + "auth.html" : "";
+  var SESS = "iti_uks_sess";
+  var VAATURI_MUSTER = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]{20,}\/exec$/;
+  var SCOPES_SISSE = ["User.Read", "GroupMember.Read.All"];
+  var SCOPES = SCOPES_SISSE.concat(["User.ReadBasic.All", "Sites.Selected"]);
+  var SCOPES_VANA = SCOPES_SISSE.concat(["Sites.ReadWrite.All"]);   // üleminek, vt rak_app.js
+  var kast = document.getElementById("uksKast"), nupp = document.getElementById("avaSisse"), teadeEl = document.getElementById("uksTeade");
+  if (!kast || !nupp || !teadeEl) return;
+  function teade(t, viga) { teadeEl.textContent = t || ""; teadeEl.hidden = !t; teadeEl.classList.toggle("viga", !!viga); }
+  function laeb(jah) { kast.classList.toggle("laeb", !!jah); nupp.disabled = !!jah; }
+  // Kui lehte ei saa kohe laadida (sessioon puudub või tekkis viga), tuuakse ette uks koos teatega.
+  function uksEtte() { document.documentElement.classList.remove("laeb"); }
+  if (window.top !== window.self) { nupp.disabled = true; teade("Leht ei tööta teise lehe raami sees.", true); return; }
+
+  function sess() { try { var s = JSON.parse(sessionStorage.getItem(SESS) || "null"); if (s && s.s && s.exp > Date.now() + 30000) return s; } catch (e) {} return null; }
+  function unusta() { try { sessionStorage.removeItem(SESS); } catch (e) {} }
+  // Praeguse aadressi leht hoidlas (nt "k5/index.html").
+  function tee() { var p = location.href.split("#")[0].split("?")[0].slice(ALUS.length); if (!p || /\/$/.test(p)) p += "index.html"; return p; }
+
+  var vaatur = null;
+  async function vaaturiAadress() {
+    if (vaatur) return vaatur;
+    var r = await fetch(ALUS + "vaatur.json", { cache: "no-store", credentials: "omit" });
+    var j = await r.json(), u = String((j && j.vaatur) || "").trim();
+    if (!VAATURI_MUSTER.test(u)) throw new Error("Vaaturi aadress on seadistamata (fail vaatur.json).");
+    vaatur = u; return u;
+  }
+  // Päring vaaturile: POST ilma erilise sisutüübita (eelpäringut ei tehta); sessioon on kehas, mitte aadressis.
+  async function api(keha) {
+    var r = await fetch(await vaaturiAadress(), { method: "POST", body: JSON.stringify(keha), headers: { "Content-Type": "text/plain;charset=utf-8" }, redirect: "follow", credentials: "omit", referrerPolicy: "no-referrer" });
+    var t = await r.text();
+    try { return JSON.parse(t); } catch (e) { throw new Error("Vaatur vastas ootamatult."); }
+  }
+  // Laadib praeguse aadressi lehe ja kirjutab selle aknasse. Tagastab false, kui sessiooni ei ole või see on aegunud.
+  async function ava() {
+    var s = sess(); if (!s) return false;
+    laeb(true); teade("Laen lehte …");
+    var v = await api({ a: "leht", s: s.s, p: tee() });
+    if (v && v.ok && typeof v.html === "string") { document.open(); document.write(v.html); document.close(); return true; }
+    if (v && v.kood === 401) { unusta(); laeb(false); teade(""); return false; }
+    laeb(false); uksEtte();
+    if (v && v.kood === 404) { teade("Seda lehte ei ole. Avaleht: " + ALUS, true); return true; }
+    throw new Error((v && v.viga) || "Lehte ei saanud laadida.");
+  }
+
+  var app = null, valmis = null, konto = null, vanadOigused = false;
+  function msalValmis() {
+    if (valmis) return valmis;
+    if (!window.msal) return Promise.reject(new Error("Sisselogimise teeki ei saanud laadida."));
+    app = new msal.PublicClientApplication({ auth: { clientId: CLIENT, authority: "https://login.microsoftonline.com/" + TENANT, redirectUri: AUTH || ALUSED[0] + "auth.html" }, cache: { cacheLocation: "sessionStorage" } });
+    valmis = app.initialize ? app.initialize() : Promise.resolve();
+    return valmis;
+  }
+  async function vaikne(scopes) { return (await app.acquireTokenSilent({ scopes: scopes, account: konto })).accessToken; }
+  async function toend() {
+    if (!vanadOigused) { try { return await vaikne(SCOPES); } catch (e) {} }
+    try { var t = await vaikne(SCOPES_VANA); vanadOigused = true; return t; } catch (e) {}
+    return await vaikne(SCOPES_SISSE);
+  }
+  // Microsofti tõend vaaturile -> vaaturi sessioon -> leht.
+  async function vaaturisse() {
+    laeb(true); teade("Kontrollin ligipääsu …");
+    var v = await api({ a: "login", t: await toend() });
+    if (!v || !v.ok) { laeb(false); uksEtte(); teade((v && v.viga) || "Sisselogimine ebaõnnestus.", true); return; }
+    try { sessionStorage.setItem(SESS, JSON.stringify({ s: v.s, exp: v.exp, kes: v.kes || "" })); } catch (e) {}
+    if (!(await ava())) { laeb(false); uksEtte(); teade("Lehte ei saanud laadida.", true); }
+  }
+  function viga(err) {
+    laeb(false); uksEtte();
+    if (err && /user_cancelled|popup_window/i.test(err.errorCode || "")) { teade(""); return; }
+    if (/AADSTS50105/.test(String(err && (err.errorMessage || err.message)))) { teade("Sinu kontole ei ole selle rakenduse kasutamise luba antud. Õpilane lisatakse kursuse töörühma ja haldur annab loa; pöördu oma õpetaja poole.", true); return; }
+    teade("Sisselogimine ebaõnnestus: " + ((err && (err.errorMessage || err.message)) || ""), true);
+  }
+  nupp.addEventListener("click", async function () {
+    teade("");
+    try {
+      if (!ALUS) { teade("Sellelt aadressilt ei saa sisse logida. Leht asub aadressil " + ALUSED[0] + ".", true); return; }
+      await msalValmis();
+      var res = await app.loginPopup({ scopes: SCOPES_SISSE, prompt: "select_account", redirectUri: AUTH });
+      app.setActiveAccount(res.account); konto = res.account;
+      await vaaturisse();
+    } catch (err) { viga(err); }
+  });
+  // Käivitus: kehtiva sessiooniga laaditakse leht kohe. Kui sessioon on aegunud, aga Microsofti sisselogimine on samas
+  // vahekaardis alles, küsitakse uus sessioon ilma aknata. Muul juhul jääb ette uks.
+  (async function () {
+    if (!ALUS) { uksEtte(); return; }
+    try {
+      if (await ava()) return;
+      await msalValmis();
+      var acc = app.getAllAccounts()[0];
+      if (acc) { app.setActiveAccount(acc); konto = acc; await vaaturisse(); } else uksEtte();
+    } catch (err) { viga(err); }
+  })();
+})();
+</script>
+</body>
+</html>
